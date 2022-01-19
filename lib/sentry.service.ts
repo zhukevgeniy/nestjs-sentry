@@ -34,6 +34,7 @@ export class SentryService extends ConsoleLogger implements OnApplicationShutdow
                   Client<Options>
                 >() as Client<Options>
               ).captureException(err);
+              await Sentry.flush();
               process.exit(1);
             }
           },

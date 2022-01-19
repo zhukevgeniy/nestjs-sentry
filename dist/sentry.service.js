@@ -54,6 +54,7 @@ let SentryService = SentryService_1 = class SentryService extends common_1.Conso
                         }
                         else {
                             Sentry.getCurrentHub().getClient().captureException(err);
+                            yield Sentry.flush();
                             process.exit(1);
                         }
                     }),
